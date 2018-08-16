@@ -1,0 +1,12 @@
+<div>
+  
+    <input placeholder = "Enter Message" [(ngModel)] = "name">
+    <button (click) = "placeName(name)"> Put Name </button>
+
+</div>
+
+<div> 
+  <ul *ngFor = "let footballer of footballers">
+    <li> {{footballer.name}}</li>
+  </ul>
+</div>
