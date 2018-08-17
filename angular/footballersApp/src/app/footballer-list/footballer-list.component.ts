@@ -24,6 +24,20 @@ export class FootballerListComponent implements OnInit {
   ngOnInit() {
     this.getFootballers();
     this.service.connect('guest', 'guest');
+    this.service.getMessageSubject()
+    .subscribe((message) => {
+
+      this.message = message;
+      console.log('NGINIT: Message received from subscription: ' + this.message );
+      if (this.message === 'Footballer added to queue' || this.message === 'Getting list of footballers') {
+        console.log('We\'re getting footballers');
+        this.getFootballers();
+        this.sharedFootballerList.next(this.footballers);
+      }
+
+    });
+
+
   }
 
 
@@ -33,16 +47,6 @@ export class FootballerListComponent implements OnInit {
     this.footballer = new Footballer();
     this.footballer.setName(name);
     this.service.placeName(this.footballer).subscribe();
-
-    this.service.getMessageSubject()
-    .subscribe((message) => { this.message = message; });
-
-    console.log('Message received from subscription: ' + this.message );
-    if (this.message === 'Footballer added to queue' || this.message === 'Getting list of footballers') {
-      console.log('We\'re getting footballers');
-      this.getFootballers();
-      this.sharedFootballerList.next(this.footballers);
-    }
   }
 
   getFootballers() {
