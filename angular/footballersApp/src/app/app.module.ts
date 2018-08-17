@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FootballerListComponent } from './footballer-list/footballer-list.component';
-import {FootballerService} from './shared/services/footballer.service'; 
+import {FootballerService} from './shared/services/footballer.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { AlertModule } from 'ngx-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
@@ -24,7 +24,7 @@ import { ListOfFootballersComponent } from './list-of-footballers/list-of-footba
     FormsModule,
     AlertModule.forRoot()
   ],
-  providers: [ FootballerService],
+  providers: [ FootballerService, FootballerListComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

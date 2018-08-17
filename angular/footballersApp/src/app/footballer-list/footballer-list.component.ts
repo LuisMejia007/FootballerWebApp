@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {Footballer} from '../shared/models/footballer';
 import {FootballerService} from '../shared/services/footballer.service';
 import {FormsModule} from '@angular/forms';
+import { BehaviorSubject } from '../../../node_modules/rxjs';
 @Component({
   selector: 'app-footballer-list',
   templateUrl: './footballer-list.component.html',
@@ -14,6 +15,7 @@ export class FootballerListComponent implements OnInit {
   name: string;
   footballer: Footballer;
   footballers: Footballer[] = [];
+  sharedFootballerList = new BehaviorSubject<Footballer[]>(null);
 
   constructor(
     private service: FootballerService
@@ -39,6 +41,7 @@ export class FootballerListComponent implements OnInit {
     if (this.message === 'Footballer added to queue' || this.message === 'Getting list of footballers') {
       console.log('We\'re getting footballers');
       this.getFootballers();
+      this.sharedFootballerList.next(this.footballers);
     }
   }
 
@@ -48,6 +51,10 @@ export class FootballerListComponent implements OnInit {
   }
   sayHello(message: string) {
     this.service.sayHello(message).subscribe();
+  }
+
+  shareFootballerList() {
+    return this.sharedFootballerList.asObservable();
   }
 
 }

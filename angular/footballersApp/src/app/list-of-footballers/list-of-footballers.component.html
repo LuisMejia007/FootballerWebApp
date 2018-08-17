@@ -1,5 +1,12 @@
 <div> 
   <ul *ngFor = "let footballer of footballers">
-    <li> {{footballer.name}} </li>
+    <li> {{ footballer.name}} </li>
+    <ul>
+      <li> {{footballer.fullName }} </li>
+      <li> {{footballer.position }} </li>
+      <li> {{footballer.dateOfBirth}} </li>
+      <li> {{footballer.placeOfBirth}} </li>
+      <!-- <li> {{footballer.getNationality()}} </li> -->
+    </ul>
   </ul>
 </div>
