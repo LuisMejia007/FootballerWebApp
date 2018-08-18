@@ -28,9 +28,15 @@ export class FootballerListComponent implements OnInit {
     .subscribe((message) => {
 
       this.message = message;
-      console.log('NGINIT: Message received from subscription: ' + this.message );
-      if (this.message === 'Footballer added to queue' || this.message === 'Getting list of footballers') {
-        console.log('We\'re getting footballers');
+
+      if (this.message === 'Footballer added to queue'
+      ||
+      this.message === 'Footballer Not Added. Please make sure to spell a player\'s name correctly or be more descriptive.') {
+
+        if (this.message === 'Footballer Not Added. Please make sure to spell a player\'s name correctly or be more descriptive.') {
+          // alert(this.message);
+        }
+
         this.getFootballers();
         this.sharedFootballerList.next(this.footballers);
       }

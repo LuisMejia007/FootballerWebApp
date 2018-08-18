@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.amqp.core.Exchange;
 import org.jsoup.nodes.Document;
 
+import java.awt.datatransfer.SystemFlavorMap;
 import java.util.ArrayList;
 
 @Service
@@ -28,11 +29,69 @@ public class footballersService {
 
     public void addFootballer(Footballer footballer) {
 
-        this.footballers.add(footballer);
+
 
         String tempName = footballer.getName();
         tempName = this.convertToQueryString(tempName);
+        footballer.setName(tempName.replace("_", " "));
 
+
+        if (this.scrapeFootballerInfo(footballer, tempName)) {
+
+            this.footballers.add(footballer);
+            rabbitTemplate.convertAndSend(this.exchange.getName(),"footballer.add", "Footballer added to queue");
+        }
+
+    }
+
+    public ArrayList<Footballer> getFootballers () {
+
+        return this.footballers;
+    }
+
+
+    public String convertToQueryString(String tempName) {
+
+
+        int lastWhiteSpaceIndex = 0;
+        int numberOfWhiteSpaces = 0;
+        ArrayList<String> names = new ArrayList<String>();
+
+        for (int i = 0; i < tempName.length(); i++) {
+
+            char temp [] = tempName.toCharArray();
+
+            if( temp[i] == ' ') {
+
+               numberOfWhiteSpaces++;
+               names.add(tempName.substring(lastWhiteSpaceIndex, i).trim());
+               lastWhiteSpaceIndex = i;             // update the last time we found a white space with the new index
+            }
+        }
+
+        if (numberOfWhiteSpaces >= 1) {
+
+            names.add(tempName.substring(lastWhiteSpaceIndex, tempName.length()).trim());
+        } else {
+            names.add(tempName);
+        }
+
+
+        String finalOfficialName = "";
+        for (int i = 0; i < names.size(); i++) {
+
+            String oldFirstLetter = names.get(i).substring(0,1);
+            String newFirstLetter = oldFirstLetter.toUpperCase();
+            String replacement = names.get(i).replaceFirst(oldFirstLetter, newFirstLetter);
+
+            finalOfficialName += replacement + " ";
+        }
+        finalOfficialName = finalOfficialName.trim().replaceAll(" ", "_");
+
+        return finalOfficialName;
+    }
+
+    public boolean scrapeFootballerInfo(Footballer footballer, String tempName) {
         final String url = "https://en.wikipedia.org/wiki/" + tempName;
 
         try {
@@ -40,45 +99,44 @@ public class footballersService {
 
             for (Element info_rows : doc.select("table.infobox.vcard tr")) {
 
-                System.out.println(info_rows.select("tr:nth-of-type(3)").text());
+                String name = info_rows.getElementsByClass("nickname").text().replace("[1]", "");
+                String dob = info_rows.getElementsByClass("bday").text();
+                String birthplace = info_rows.getElementsByClass("birthplace").text();
+                String position = info_rows.getElementsByClass("role").text();
+
+
+//                String img = info_rows.getElementsByClass("image").first().text();
+//                System.out.println("Img: " + img);
+
+                if (!name.equals("")) {
+                    footballer.setFullName(name);
+                }
+                if (!dob.equals("")) {
+                    footballer.setDateOfBirth(dob);
+                }
+                if (!birthplace.equals("")) {
+                    footballer.setPlaceOfBirth(birthplace);
+                }
+                if (!position.equals("")) {
+                    footballer.setPosition(position);
+                }
+
+
             }
 
+            return true;
+
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+
+            rabbitTemplate
+                    .convertAndSend(this.exchange.getName(),
+                            "footballer.notAdded",
+                            "Footballer Not Added. " +
+                                    "Please make sure to spell a player's name correctly or be more descriptive.");
+
         }
 
-        rabbitTemplate.convertAndSend(this.exchange.getName(),"footballer.add", "Footballer added to queue");
-    }
-
-    public ArrayList<Footballer> getFootballers () {
-
-        rabbitTemplate.convertAndSend(this.exchange.getName(),"footballer.list", "Getting list of footballers");
-        return this.footballers;
-    }
-
-
-    public String convertToQueryString(String tempName) {
-
-        int indexOfSpace = tempName.indexOf(" ");
-        String tempFirstName = tempName.substring(0, indexOfSpace);
-        String tempLastName = tempName.substring(indexOfSpace + 1, tempName.length());
-
-        String convertFirstNameToUpper = tempFirstName.substring(0, 1);
-        String convertLastNameToUpper = tempLastName.substring(0, 1);
-
-
-        convertFirstNameToUpper = convertFirstNameToUpper.toUpperCase();
-        convertLastNameToUpper = convertLastNameToUpper.toUpperCase();
-
-
-        tempFirstName = tempFirstName
-                .replaceFirst(tempFirstName.substring(0,1) , convertFirstNameToUpper);
-        tempLastName = tempLastName
-                .replaceFirst(tempLastName.substring(0,1) , convertLastNameToUpper);
-
-
-        tempName = tempFirstName + "_" + tempLastName;
-
-        return tempName;
+        return false;
     }
 }
