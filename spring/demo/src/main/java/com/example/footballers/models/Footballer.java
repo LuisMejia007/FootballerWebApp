@@ -10,6 +10,7 @@ public class Footballer {
     public String dateOfBirth;
     public String placeOfBirth;
     public String nationality;
+    public String imgUrl;
 
     public String getName() {
         return name;
@@ -31,6 +32,8 @@ public class Footballer {
 
     public String getPlaceOfBirth() { return this.placeOfBirth; }
 
+    public String getImgUrl(){  return this.imgUrl; }
+
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
@@ -44,5 +47,7 @@ public class Footballer {
     public void setFullName(String fullName) { this.fullName = fullName; }
 
     public void setPlaceOfBirth(String placeOfBirth) { this.placeOfBirth = placeOfBirth; }
+
+    public void setImgUrl(String imgUrl) { this.imgUrl = imgUrl; }
 
 }

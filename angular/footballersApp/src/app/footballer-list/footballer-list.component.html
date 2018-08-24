@@ -7,6 +7,6 @@
 
 <div> 
   <ul *ngFor = "let footballer of footballers">
-    <li> {{footballer.name}}</li>
+     <a routerLink = "/footballerDetails/{{footballer.name}}"> {{footballer.name}} </a> 
   </ul>
 </div>

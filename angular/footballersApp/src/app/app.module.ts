@@ -9,12 +9,14 @@ import { AlertModule } from 'ngx-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { ListOfFootballersComponent } from './list-of-footballers/list-of-footballers.component';
+import { FootballerDetailsComponent } from './footballer-details/footballer-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FootballerListComponent,
-    ListOfFootballersComponent
+    ListOfFootballersComponent,
+    FootballerDetailsComponent
   ],
   imports: [
     BrowserModule,

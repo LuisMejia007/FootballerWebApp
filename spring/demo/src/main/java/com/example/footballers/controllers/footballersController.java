@@ -28,12 +28,22 @@ public class footballersController {
 
     @CrossOrigin(origins = "http://localhost:1200")
     @GetMapping(value = "/getFootballers")
+    @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public ArrayList<Footballer> getFootballers() {
         return this.service.getFootballers();
     }
 
+    @RequestMapping(value = "/footballerDetails/{name}", method = RequestMethod.GET)
+    @CrossOrigin(origins = "http://localhost:1200")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Footballer getFootballerByName(@PathVariable String name) {
 
+        System.out.println("Name brought in: " + name);
+
+        return this.service.getFootballerByName(name);
+    }
 
     @SendTo("/topic/public")
     public String notify(String message) {

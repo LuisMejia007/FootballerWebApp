@@ -39,9 +39,31 @@ public class footballersService {
         if (this.scrapeFootballerInfo(footballer, tempName)) {
 
             this.footballers.add(footballer);
+            System.out.println("Footballer: " + footballer.getName() + " added to queue");
             rabbitTemplate.convertAndSend(this.exchange.getName(),"footballer.add", "Footballer added to queue");
         }
 
+    }
+
+
+    public Footballer getFootballerByName(String name){
+
+        name = name.replace("_", " ").trim();
+        System.out.println("Finding: " + name);
+        for (Footballer footballer : this.footballers) {
+
+            System.out.println("Footballer in queue: " +  footballer.getName());
+
+
+            if ( name.equals( footballer.getName().trim() ) ) {
+
+                System.out.println("Footballer found!: " + footballer.getName());
+                rabbitTemplate.convertAndSend(this.exchange.getName(), "footballer.getByName", "Get footballer by name");
+                return footballer;
+            }
+
+        }
+        return null;
     }
 
     public ArrayList<Footballer> getFootballers () {
@@ -92,6 +114,7 @@ public class footballersService {
     }
 
     public boolean scrapeFootballerInfo(Footballer footballer, String tempName) {
+
         final String url = "https://en.wikipedia.org/wiki/" + tempName;
 
         try {
@@ -103,10 +126,6 @@ public class footballersService {
                 String dob = info_rows.getElementsByClass("bday").text();
                 String birthplace = info_rows.getElementsByClass("birthplace").text();
                 String position = info_rows.getElementsByClass("role").text();
-
-
-//                String img = info_rows.getElementsByClass("image").first().text();
-//                System.out.println("Img: " + img);
 
                 if (!name.equals("")) {
                     footballer.setFullName(name);
@@ -120,14 +139,16 @@ public class footballersService {
                 if (!position.equals("")) {
                     footballer.setPosition(position);
                 }
-
-
             }
+
+
+            String img = this.getFootballerImg(doc);
+
+            footballer.setImgUrl(img);
 
             return true;
 
         } catch (Exception e) {
-//            e.printStackTrace();
 
             rabbitTemplate
                     .convertAndSend(this.exchange.getName(),
@@ -138,5 +159,27 @@ public class footballersService {
         }
 
         return false;
+    }
+
+
+    public String getFootballerImg(Document doc) {
+
+        String img = "";
+
+
+        try {
+
+            Element e = doc.select("table.infobox.vcard tr").tagName("td").first();
+
+            img = e.getElementsByClass("image").tagName("img").get(0).absUrl("href");
+            img = img.replace(" ", "_");
+
+
+        } catch (Exception e) {
+
+            System.out.println("Error in getFootballerImg(): " + e);
+        }
+
+        return img;
     }
 }

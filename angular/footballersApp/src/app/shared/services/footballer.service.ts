@@ -36,6 +36,13 @@ export class FootballerService {
     return this.http.get<Footballer[]>(url, httpOptions);
   }
 
+  getFootballerByName(name: string): Observable<Footballer> {
+      const url = 'http://localhost:8080/footballerDetails/';
+     name = name.replace(' ', '_');
+      console.log('Service Name: ' + url + name);
+      return this.http.get<Footballer>(url + name, httpOptions);
+  }
+
   sayHello(message: string): Observable<string> {
     const url = 'http://localhost:8080/sayHello';
     return this.http.post<string>(url, message, httpOptions);
