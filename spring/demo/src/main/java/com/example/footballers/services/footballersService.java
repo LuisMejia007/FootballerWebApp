@@ -3,6 +3,7 @@ package com.example.footballers.services;
 import com.example.footballers.models.Footballer;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.amqp.core.Exchange;
@@ -165,6 +166,7 @@ public class footballersService {
     public String getFootballerImg(Document doc) {
 
         String img = "";
+        String url = "";
 
 
         try {
@@ -173,11 +175,18 @@ public class footballersService {
 
             img = e.getElementsByClass("image").tagName("img").get(0).absUrl("href");
             img = img.replace(" ", "_");
+            url = e.getElementsByClass("image").tagName("img").get(0).absUrl("href").replace(" ", "_");
 
+            Document imgDoc = Jsoup.connect(url).get();
+            Element imgGetter = imgDoc.getElementsByClass("fullImageLink").tagName("a").first().child(0);
+            System.out.println("Img Getter: \n" + imgGetter.html());
+            img = imgGetter.absUrl("href");
+            System.out.println("New Image: " + img);
 
         } catch (Exception e) {
 
             System.out.println("Error in getFootballerImg(): " + e);
+            e.printStackTrace();
         }
 
         return img;
