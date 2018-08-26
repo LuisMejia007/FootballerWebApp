@@ -10,13 +10,16 @@ import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { ListOfFootballersComponent } from './list-of-footballers/list-of-footballers.component';
 import { FootballerDetailsComponent } from './footballer-details/footballer-details.component';
+import { FootballerCardComponent } from './footballer-card/footballer-card.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FootballerListComponent,
     ListOfFootballersComponent,
-    FootballerDetailsComponent
+    FootballerDetailsComponent,
+    FootballerCardComponent
   ],
   imports: [
     BrowserModule,

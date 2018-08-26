@@ -6,7 +6,7 @@ import { BehaviorSubject } from '../../../node_modules/rxjs';
 @Component({
   selector: 'app-footballer-list',
   templateUrl: './footballer-list.component.html',
-  styleUrls: ['./footballer-list.component.css']
+  styleUrls: ['./footballer-list.component.css', '../shared/css/styles.css']
 })
 export class FootballerListComponent implements OnInit {
 

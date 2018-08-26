@@ -1,0 +1,44 @@
+.footballerCardContainer{
+    display: block;
+    float: left;
+    margin: 0 auto;
+    height: 350px;
+    border: 2px solid black;
+    background-color: rgba(0, 11, 167, 0.897);
+}
+
+.footballerImgContainer{ 
+    display: block;
+    float: left;
+    margin: 0 auto;
+    width: 100%;
+}
+.footballerImg { 
+    height: 350px; 
+    width: 100%; 
+}
+
+.footballerNameContainer{ 
+    display: block;
+    float: left;
+    margin: 0 auto;
+    width: 100%;
+    background-color: rgba(0, 7, 17, 0.514);
+    position: relative; 
+    bottom: 57px;
+    padding: 2px;
+}
+
+.footballerNameLink{ 
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-family: 'Ubuntu', sans-serif;
+    
+}
+
+
+.row { 
+    flex-wrap: nowrap;
+}
