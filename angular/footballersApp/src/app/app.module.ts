@@ -4,14 +4,16 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FootballerListComponent } from './footballer-list/footballer-list.component';
 import {FootballerService} from './shared/services/footballer.service';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AlertModule } from 'ngx-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { ListOfFootballersComponent } from './list-of-footballers/list-of-footballers.component';
 import { FootballerDetailsComponent } from './footballer-details/footballer-details.component';
 import { FootballerCardComponent } from './footballer-card/footballer-card.component';
-
+import { StickNavDirective } from './directives/stick-nav.directive';
+import { WindowReferenceService } from './shared/services/native_window_service/window-reference.service';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { FootballerCardComponent } from './footballer-card/footballer-card.compo
     FootballerListComponent,
     ListOfFootballersComponent,
     FootballerDetailsComponent,
-    FootballerCardComponent
+    FootballerCardComponent,
+    StickNavDirective,
+    MenuBarComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,11 @@ import { FootballerCardComponent } from './footballer-card/footballer-card.compo
     FormsModule,
     AlertModule.forRoot()
   ],
-  providers: [ FootballerService, FootballerListComponent],
+  providers: 
+  [ FootballerService, 
+    FootballerListComponent, 
+    WindowReferenceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

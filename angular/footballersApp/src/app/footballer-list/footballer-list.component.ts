@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {Footballer} from '../shared/models/footballer';
 import {FootballerService} from '../shared/services/footballer.service';
 import {FormsModule} from '@angular/forms';
-import { BehaviorSubject } from '../../../node_modules/rxjs';
+import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-footballer-list',
   templateUrl: './footballer-list.component.html',

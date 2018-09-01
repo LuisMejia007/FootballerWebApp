@@ -1,6 +1,6 @@
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import {HttpHeaders, HttpClient} from '@angular/common/http';
-import { Observable} from '../../../../node_modules/rxjs';
+import { Observable} from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Footballer } from '../models/footballer';
 
