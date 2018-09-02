@@ -3,3 +3,17 @@ html, body {
     margin: 0;
     background-image: url("/imgs/grass_texture.jpg");
  }
+
+
+ .filter-nav {
+    background-color: black;     
+ }
+
+ .filter-nav a {
+    color: white;
+    text-decoration: none;
+ }
+
+ .filter-nav a:hover {
+     cursor: pointer;
+ }

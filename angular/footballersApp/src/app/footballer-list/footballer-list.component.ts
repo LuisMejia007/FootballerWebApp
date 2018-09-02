@@ -59,9 +59,6 @@ export class FootballerListComponent implements OnInit {
     this.service.getFootballers()
     .subscribe( footballers => this.footballers = footballers);
   }
-  sayHello(message: string) {
-    this.service.sayHello(message).subscribe();
-  }
 
   shareFootballerList() {
     return this.sharedFootballerList.asObservable();

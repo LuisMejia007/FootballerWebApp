@@ -1,6 +1,8 @@
-<div appStick class = "menu-add-footballer">
-  
-  <input placeholder = "Enter Message" [(ngModel)] = "name">
-  <button (click) = "addNewFootballer(name)"> Enter Name </button>
-
+<div class = "menu-container">
+  <div class = "col-sm-3 col-md-3"></div>
+  <div appStick class = "col-sm-6 col-md-6 menu-add-footballer">
+    <input placeholder = "Enter Message" [(ngModel)] = "name">
+    <p class = "addFootballerBtn" (click) = "addNewFootballer(name)"> Enter Name </p>
+  </div>
+  <div class = "col-sm-3 col-md-3"></div>
 </div>

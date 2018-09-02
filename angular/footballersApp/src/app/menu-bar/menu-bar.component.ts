@@ -11,9 +11,9 @@ export class MenuBarComponent implements OnInit {
 
   newFootballer: Footballer;
   name: string;
-  constructor(
-    private service: FootballerService
-  ) { }
+
+  constructor
+  (  private service: FootballerService ) { }
 
   ngOnInit() {
   }

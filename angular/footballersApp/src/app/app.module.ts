@@ -14,6 +14,7 @@ import { FootballerCardComponent } from './footballer-card/footballer-card.compo
 import { StickNavDirective } from './directives/stick-nav.directive';
 import { WindowReferenceService } from './shared/services/native_window_service/window-reference.service';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { FilterListDirective } from './directives/filter-list.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
     FootballerDetailsComponent,
     FootballerCardComponent,
     StickNavDirective,
-    MenuBarComponent
+    MenuBarComponent,
+    FilterListDirective
   ],
   imports: [
     BrowserModule,
@@ -33,9 +35,9 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
     FormsModule,
     AlertModule.forRoot()
   ],
-  providers: 
-  [ FootballerService, 
-    FootballerListComponent, 
+  providers:
+  [ FootballerService,
+    FootballerListComponent,
     WindowReferenceService
   ],
   bootstrap: [AppComponent]

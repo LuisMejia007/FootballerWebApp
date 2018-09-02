@@ -24,8 +24,8 @@
     margin: 0 auto;
     width: 100%;
     background-color: rgba(0, 7, 17, 0.514);
-    position: relative; 
-    bottom: 57px;
+    position: static;
+    margin-top: -59px;
     padding: 2px;
 }
 
@@ -34,13 +34,21 @@
     text-align: center;
     color: white;
     font-size: 18px;
-    font-family: 'Ubuntu', sans-serif;
-    
+    font-family: 'Ubuntu', sans-serif; 
+}
+
+.fake-card { 
+    float: left; 
+    margin: 0 auto;
+    width: 100%;
 }
 
 
 .row { 
     flex-wrap: nowrap;
+    width: 100%;
+    margin: 0 auto;
+    float: left;
 }
 
 html, body { 
