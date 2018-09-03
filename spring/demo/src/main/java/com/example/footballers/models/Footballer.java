@@ -11,6 +11,7 @@ public class Footballer {
     public String placeOfBirth;
     public String nationality;
     public String imgUrl;
+    public String footballerType; // Footballer type can be a starter, sub, or a reserve
 
     public String getName() {
         return name;
@@ -34,6 +35,8 @@ public class Footballer {
 
     public String getImgUrl(){  return this.imgUrl; }
 
+    public String getFootballerType() { return this.footballerType; }
+
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
@@ -49,5 +52,7 @@ public class Footballer {
     public void setPlaceOfBirth(String placeOfBirth) { this.placeOfBirth = placeOfBirth; }
 
     public void setImgUrl(String imgUrl) { this.imgUrl = imgUrl; }
+
+    public void setFootballerType(String footballerType) { this.footballerType = footballerType; }
 
 }

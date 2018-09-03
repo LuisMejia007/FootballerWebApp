@@ -1,4 +1,7 @@
-<app-side-menu [menuToggleValue] = "toggleMenuValue">
+<app-side-menu 
+[menuToggleValue] = "toggleMenuValue"
+(filterFootballerList) = "handleSideMenuFilterByFootballerType($event)"
+>
 </app-side-menu>
 
 <app-menu-bar (showcaseMenuEvent) = "handleToggleMenuEvent($event)">

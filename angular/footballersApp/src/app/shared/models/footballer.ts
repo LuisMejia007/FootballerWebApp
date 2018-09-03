@@ -6,6 +6,7 @@ export class Footballer {
     placeOfBirth: string;
     nationality: string;
     imgUrl: string;
+    footballerType: string;
 
     constructor() {}
 
@@ -35,6 +36,8 @@ export class Footballer {
 
     getImgUrl() { return this.imgUrl; }
 
+    getFootballeType() { return this.footballerType; }
+
     setName(name: string) {
         this.name = name;
     }
@@ -59,6 +62,11 @@ export class Footballer {
     }
 
     setImgUrl(imgUrl: string) { this.imgUrl = imgUrl; }
+
+
+    setFootballerType(footballerType: string) {
+        this.footballerType = footballerType;
+    }
 
 
 }

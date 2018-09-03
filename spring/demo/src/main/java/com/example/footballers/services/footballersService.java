@@ -72,6 +72,28 @@ public class footballersService {
         return this.footballers;
     }
 
+    public ArrayList<Footballer> getFootballersByType(String footballerType) {
+
+        ArrayList<Footballer> footballersByType = new ArrayList<Footballer>();
+
+        for (Footballer footballer : this.footballers) {
+
+            if (!footballer.getFootballerType().equals(footballerType)) {
+                continue;
+            }
+            footballersByType.add(footballer);
+        }
+
+        try {
+            if (footballersByType.isEmpty())
+                System.out.println("Did not find any footballers by " + footballerType + " type");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return footballersByType;
+    }
+
 
     public String convertToQueryString(String tempName) {
 

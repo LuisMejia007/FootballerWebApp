@@ -1,9 +1,24 @@
 
 <div [@toggleMenu] = "menuToggleValue" *ngIf = "menuToggleValue == 'show' " class = "side-menu-container">
     <ul class = "side-menu">
-        <li>List of Ballers</li>
+        <li (click) = "notifyFootballerListToFilter('all')">All my players</li>
+        <li (click) = "notifyFootballerListToFilter('starter')"> Starting 11 </li>
+        <li (click) = "notifyFootballerListToFilter('substitute')"> Subs </li>
+        <li (click) = "notifyFootballerListToFilter('reserve')"> Reserves </li>
         <li>Add a baller</li>
-        <input placeholder = "Enter Footballer's Name" [(ngModel)] = "name">
-        <button class = "addFootballerBtn" (click) = "addNewFootballer(name)"> Add </button>
+        <div class = "options-container">
+          <div class = "input-container">
+              <input placeholder = "Enter Footballer's Name" [(ngModel)] = "name">
+          </div>
+          <div class = "selection-container">
+              <select class = "footballer-type-selection" [(ngModel)] = "selectedFootballerType">
+                  <option value = "starter"> Starter </option>
+                  <option value = "substitute"> Substitute </option>
+                  <option value = "reserve"> Reserve </option>
+              </select>
+          </div>
+          <div class = "button-container"></div>
+            <button class = "addFootballerBtn" (click) = "addNewFootballer(name)"> Add </button>
+        </div>
     </ul>
 </div>

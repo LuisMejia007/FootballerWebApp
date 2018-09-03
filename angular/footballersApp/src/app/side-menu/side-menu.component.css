@@ -14,5 +14,20 @@
 .addFootballerBtn { 
     background-color: rgba(7, 7, 7, 0.411); 
     color: white;
+}
 
+.options-container {
+    width: 100%; 
+    margin: 0 auto; 
+    flex-wrap: wrap;
+}
+.button-container, .selection-container, .input-container { 
+    width: 100%;
+    margin: 0 auto;
+}
+
+.selection-container .footballer-type-selection select{ 
+    appearance: none;
+    background-color: white;
+    
 }

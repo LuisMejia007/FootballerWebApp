@@ -36,6 +36,12 @@ export class FootballerService {
     return this.http.get<Footballer[]>(url, httpOptions);
   }
 
+
+  getFootballersByType(footballerType: string): Observable<Footballer[]> {
+    const url = 'http://localhost:8080/getFootballers/';
+    return this.http.get<Footballer[]>(url + footballerType, httpOptions);
+  }
+
   getFootballerByName(name: string): Observable<Footballer> {
       const url = 'http://localhost:8080/footballerDetails/';
      name = name.replace(' ', '_');

@@ -5,8 +5,27 @@
   background-color: black;
    height: 55px;
    width: 100%;
+   flex-wrap: nowrap;
 }
 .menuBtn { 
     color: white;
     font-size: 2em;
+}
+
+.menu-header { 
+    color: white;
+    font-size: 2em;
+    font-family: Arial;
+}
+
+.menu-btn-container, .menu-header-container{ 
+    display: block; 
+    margin: 0 auto; 
+    float: left;
+}
+.menu-btn-container {
+    width: 30%;
+}
+.menu-header-container{  
+    width: 70%;
 }

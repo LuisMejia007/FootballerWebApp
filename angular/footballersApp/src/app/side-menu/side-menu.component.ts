@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {
   trigger,
   animate,
@@ -32,8 +32,11 @@ import { Footballer } from '../shared/models/footballer';
 export class SideMenuComponent implements OnInit {
 
  @Input() menuToggleValue: string;
+ @Output() filterFootballerList: EventEmitter<string> = new EventEmitter<string>();
+ filter: string;
  newFootballer: Footballer;
  name: string;
+ selectedFootballerType: string;
 
   constructor(
     private service: FootballerService
@@ -41,6 +44,7 @@ export class SideMenuComponent implements OnInit {
 
   ngOnInit() {
     console.log('Menu Toggle Value: ' + this.menuToggleValue);
+    console.log('Type: ' + this.selectedFootballerType);
   }
 
 
@@ -48,9 +52,19 @@ export class SideMenuComponent implements OnInit {
   addNewFootballer(name: string) {
     this.newFootballer = new Footballer();
     this.newFootballer.setName(name);
+
+    if (this.selectedFootballerType != null) {
+
+      this.newFootballer.setFootballerType(this.selectedFootballerType);
+
+    } else {
+      alert('Please add what type of footballer youd like to add');
+    }
     this.service.placeName(this.newFootballer).subscribe();
   }
 
-
-
+  notifyFootballerListToFilter(filter: string) {
+    console.log('User wants footballers of type: ' + filter);
+    this.filterFootballerList.emit(filter);
+  }
 }

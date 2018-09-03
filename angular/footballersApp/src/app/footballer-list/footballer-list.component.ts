@@ -9,6 +9,7 @@ import {
   state,
   style
 } from '@angular/animations';
+import { SideMenuComponent } from '../side-menu/side-menu.component';
 
 @Component({
   selector: 'app-footballer-list',
@@ -25,9 +26,10 @@ export class FootballerListComponent implements OnInit {
   footballer: Footballer;
   footballers: Footballer[] = [];
   sharedFootballerList = new BehaviorSubject<Footballer[]>(null);
-
+  filterStatus: string;
   constructor(
-    private service: FootballerService
+    private service: FootballerService,
+    private sideMenuComponentListener: SideMenuComponent
   ) { }
 
   ngOnInit() {
@@ -55,6 +57,10 @@ export class FootballerListComponent implements OnInit {
     .subscribe( footballers => this.footballers = footballers);
   }
 
+  getFootballersByType(filter: string) {
+    this.service.getFootballersByType(filter).subscribe(footballers => this.footballers = footballers);
+  }
+
   shareFootballerList() {
     return this.sharedFootballerList.asObservable();
   }
@@ -63,6 +69,19 @@ export class FootballerListComponent implements OnInit {
   handleToggleMenuEvent(event: any) {
     this.toggleMenuValue = event;
     console.log('Event received: ' + this.toggleMenuValue);
+  }
+
+  handleSideMenuFilterByFootballerType(event: any) {
+      this.filterStatus = event;
+      console.log('Commencing filter by ' + this.filterStatus + ' type');
+      if (this.filterStatus === 'all') {
+        this.getFootballers();
+      } else {
+        this.service
+        .getFootballersByType(this.filterStatus)
+        .subscribe(footballers => this.footballers = footballers);
+      }
+
   }
 
 }

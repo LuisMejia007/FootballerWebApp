@@ -42,6 +42,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
   providers:
   [ FootballerService,
     FootballerListComponent,
+    SideMenuComponent,
     WindowReferenceService
   ],
   bootstrap: [AppComponent]

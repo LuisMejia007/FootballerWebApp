@@ -1,6 +1,7 @@
 package com.example.footballers.controllers;
 
 import com.example.footballers.models.Footballer;
+import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -22,6 +23,7 @@ public class footballersController {
     @PostMapping(value = "/addFootballer")
     @ResponseStatus(HttpStatus.CREATED)
     public void addFootballer(@RequestBody Footballer footballer) {
+        System.out.println("Footballer Name: " + footballer.getName() + " type: " + footballer.getFootballerType());
         this.service.addFootballer(footballer);
     }
 
@@ -32,6 +34,15 @@ public class footballersController {
     @ResponseBody
     public ArrayList<Footballer> getFootballers() {
         return this.service.getFootballers();
+    }
+
+    @RequestMapping(value = "/getFootballers/{footballerType}", method = RequestMethod.GET)
+    @CrossOrigin(origins = "http://localhost:1200")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public ArrayList<Footballer> getFootballersByType(@PathVariable String footballerType) {
+        System.out.println("Retrieving Footballers by : " + footballerType + " type.");
+        return this.service.getFootballersByType(footballerType);
     }
 
     @RequestMapping(value = "/footballerDetails/{name}", method = RequestMethod.GET)
