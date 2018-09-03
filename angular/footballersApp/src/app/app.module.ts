@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { StickNavDirective } from './directives/stick-nav.directive';
 import { WindowReferenceService } from './shared/services/native_window_service/window-reference.service';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { FilterListDirective } from './directives/filter-list.directive';
+import { SideMenuComponent } from './side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,12 @@ import { FilterListDirective } from './directives/filter-list.directive';
     FootballerCardComponent,
     StickNavDirective,
     MenuBarComponent,
-    FilterListDirective
+    FilterListDirective,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     HttpModule,

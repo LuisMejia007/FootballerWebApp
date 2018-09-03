@@ -1,18 +1,27 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {Footballer} from '../shared/models/footballer';
 import {FootballerService} from '../shared/services/footballer.service';
-import {FormsModule} from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
+import {
+  trigger,
+  animate,
+  transition,
+  state,
+  style
+} from '@angular/animations';
+
 @Component({
   selector: 'app-footballer-list',
   templateUrl: './footballer-list.component.html',
-  styleUrls: ['./footballer-list.component.css', '../shared/css/styles.css']
+  styleUrls: ['./footballer-list.component.css', '../shared/css/styles.css'],
+  animations: []
 })
 export class FootballerListComponent implements OnInit {
 
   @ViewChild('myForm') myForm;
   message: string;
   name: string;
+  toggleMenuValue: string;
   footballer: Footballer;
   footballers: Footballer[] = [];
   sharedFootballerList = new BehaviorSubject<Footballer[]>(null);
@@ -36,25 +45,11 @@ export class FootballerListComponent implements OnInit {
         if (this.message === 'Footballer Not Added. Please make sure to spell a player\'s name correctly or be more descriptive.') {
           // alert(this.message);
         }
-
         this.getFootballers();
         this.sharedFootballerList.next(this.footballers);
       }
-
     });
-
-
   }
-
-
-
-  placeName(name: string) {
-    console.log(name);
-    this.footballer = new Footballer();
-    this.footballer.setName(name);
-    this.service.placeName(this.footballer).subscribe();
-  }
-
   getFootballers() {
     this.service.getFootballers()
     .subscribe( footballers => this.footballers = footballers);
@@ -62,6 +57,12 @@ export class FootballerListComponent implements OnInit {
 
   shareFootballerList() {
     return this.sharedFootballerList.asObservable();
+  }
+
+
+  handleToggleMenuEvent(event: any) {
+    this.toggleMenuValue = event;
+    console.log('Event received: ' + this.toggleMenuValue);
   }
 
 }

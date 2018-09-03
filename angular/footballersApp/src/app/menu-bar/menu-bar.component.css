@@ -1,12 +1,12 @@
 .menu-container {  
     height: 55px;
 }
-.menu-add-footballer {
+.menu {
   background-color: black;
    height: 55px;
    width: 100%;
 }
-.addFootballerBtn { 
-    background-color: white;
-    color: black;
+.menuBtn { 
+    color: white;
+    font-size: 2em;
 }

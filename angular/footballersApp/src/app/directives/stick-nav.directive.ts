@@ -30,8 +30,7 @@ export class StickNavDirective {
       this.renderer.removeStyle(this.element.nativeElement, 'position');
       this.renderer.removeStyle(this.element.nativeElement, 'z-index');
     }
-    console.log('Scroll!: ' + this.myWindow.pageYOffset);
-
+    console.log('Scroll: ' + this.myWindow.pageYOffset);
   }
 
 }

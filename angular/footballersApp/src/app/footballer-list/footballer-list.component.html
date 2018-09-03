@@ -1,9 +1,11 @@
+<app-side-menu [menuToggleValue] = "toggleMenuValue">
+</app-side-menu>
 
-<app-menu-bar></app-menu-bar>
+<app-menu-bar (showcaseMenuEvent) = "handleToggleMenuEvent($event)">
+</app-menu-bar>
 
 <div> 
   <ul *ngFor = "let footballer of footballers">
-     <!-- <a routerLink = "/footballerDetails/{{footballer.name}}"> {{footballer.name}} </a>  -->
      <app-footballer-card
      [footballer] = "footballer"
      >

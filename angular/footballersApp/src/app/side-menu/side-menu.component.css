@@ -1,0 +1,18 @@
+.side-menu-container { 
+    background-color: rgba(0,0,0, 0.8);
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1 !important;
+}
+
+.side-menu li { 
+    color: white;
+}
+
+.addFootballerBtn { 
+    background-color: rgba(7, 7, 7, 0.411); 
+    color: white;
+
+}

@@ -1,0 +1,9 @@
+
+<div [@toggleMenu] = "menuToggleValue" *ngIf = "menuToggleValue == 'show' " class = "side-menu-container">
+    <ul class = "side-menu">
+        <li>List of Ballers</li>
+        <li>Add a baller</li>
+        <input placeholder = "Enter Footballer's Name" [(ngModel)] = "name">
+        <button class = "addFootballerBtn" (click) = "addNewFootballer(name)"> Add </button>
+    </ul>
+</div>
