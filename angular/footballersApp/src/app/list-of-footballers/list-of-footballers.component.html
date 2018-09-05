@@ -1,12 +1,24 @@
-<div> 
-  <ul *ngFor = "let footballer of footballers">
-    <li> {{ footballer.name}} </li>
-    <ul>
-      <li> {{footballer.fullName }} </li>
-      <li> {{footballer.position }} </li>
-      <li> {{footballer.dateOfBirth}} </li>
-      <li> {{footballer.placeOfBirth}} </li>
-      <!-- <li> {{footballer.getNationality()}} </li> -->
-    </ul>
-  </ul>
-</div>
+ 
+  <div class = "footballer-card-container" *ngFor = "let footballer of footballers">
+    <div class = "footballer-card">
+  
+      <div class = "footballer-info-container">
+        <div class = "footballer-img-container">
+            <img class = "footballerImg" alt = "{{footballer.name}} picture" src = "{{footballer.imgUrl}}"/>
+        </div>
+        <div class = "footballer-info">
+          <ul>
+              <li> {{ footballer.name}} </li>
+              <ul>
+                <li> {{footballer.fullName }} </li>
+                <li> {{footballer.position }} </li>
+                <li> {{footballer.dateOfBirth}} </li>
+                <li> {{footballer.placeOfBirth}} </li>
+                  <!-- <li> {{footballer.getNationality()}} </li> -->
+              </ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+

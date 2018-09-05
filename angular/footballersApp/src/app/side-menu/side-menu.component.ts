@@ -60,7 +60,7 @@ export class SideMenuComponent implements OnInit {
     } else {
       alert('Please add what type of footballer youd like to add');
     }
-    this.service.placeName(this.newFootballer).subscribe();
+    this.service.addFootballer(this.newFootballer).subscribe();
   }
 
   notifyFootballerListToFilter(filter: string) {

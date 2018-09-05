@@ -21,13 +21,6 @@ export class MenuBarComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  addNewFootballer(name: string) {
-    this.newFootballer = new Footballer();
-    this.newFootballer.setName(name);
-    this.service.placeName(this.newFootballer).subscribe();
-  }
-
   toggleSideMenu() {
     // ternary operator: value === condition ? expr1: expr2.
     // expr1 = show, expr2 = hide. If true then execute expr1 else expr2.

@@ -10,6 +10,7 @@ import org.springframework.amqp.core.Exchange;
 import org.jsoup.nodes.Document;
 
 import java.awt.datatransfer.SystemFlavorMap;
+import java.text.Normalizer;
 import java.util.ArrayList;
 
 @Service
@@ -166,7 +167,10 @@ public class footballersService {
 
 
             String img = this.getFootballerImg(doc);
+            if (img.equals(null)){
 
+                return false;
+            }
             footballer.setImgUrl(img);
 
             return true;
@@ -196,8 +200,16 @@ public class footballersService {
             Element e = doc.select("table.infobox.vcard tr").tagName("td").first();
 
             img = e.getElementsByClass("image").tagName("img").get(0).absUrl("href");
-            img = img.replace(" ", "_");
+            img = img.replace("\\*", "_");
             url = e.getElementsByClass("image").tagName("img").get(0).absUrl("href").replace(" ", "_");
+            int startingImgFileUrl = url.indexOf("File:");
+            String nameUrl = url.substring(startingImgFileUrl + 5, url.length());
+            nameUrl = java.net.URLDecoder.decode(nameUrl, "UTF-8");
+            String temp = url.substring(startingImgFileUrl + 5, url.length());
+
+
+            url = url.replaceAll(temp, nameUrl);
+
 
             Document imgDoc = Jsoup.connect(url).get();
             Element imgGetter = imgDoc.getElementsByClass("fullImageLink").tagName("a").first().child(0);
@@ -209,6 +221,8 @@ public class footballersService {
 
             System.out.println("Error in getFootballerImg(): " + e);
             e.printStackTrace();
+
+
         }
 
         return img;

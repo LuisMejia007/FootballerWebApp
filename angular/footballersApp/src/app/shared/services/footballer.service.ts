@@ -26,7 +26,7 @@ export class FootballerService {
   ) { }
 
 
-  placeName(footballer: Footballer): Observable<Footballer> {
+  addFootballer(footballer: Footballer): Observable<Footballer> {
     const url = 'http://localhost:8080/addFootballer';
     return this.http.post<Footballer>(url, footballer, httpOptions);
   }

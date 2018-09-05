@@ -1,0 +1,37 @@
+
+.footballer-card-container{
+    width: 100%; 
+    display: block; 
+    margin: 0 auto;
+    float: left;
+}
+.footballer-card {
+    width: 100%; 
+    display: block; 
+    margin: 0 auto;
+}
+.footballer-info-container {
+
+    width: 100%;
+    background-color: black;
+    border: 2px solid red;
+    flex-wrap: nowrap;
+}
+.footballer-img-container {
+    width: 20%;
+    display: block;
+    float: left;
+    margin: 0 auto;  
+}
+
+
+.footballerImg {
+    height: 250px;
+    width: 200px;
+}
+.footballer-info {
+    width: 80%;
+    display: block;
+    float: left;
+    margin: 0 auto;
+}
