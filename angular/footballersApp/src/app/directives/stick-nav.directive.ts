@@ -21,16 +21,16 @@ export class StickNavDirective {
   @HostListener('window: scroll', ['$event'])
   windowScroll(e) {
 
-    if (this.myWindow.pageYOffset >  5) {
+    if (this.myWindow.pageYOffset >= 6) {
       this.renderer.setStyle(this.element.nativeElement, 'position', 'fixed');
       this.renderer.setStyle(this.element.nativeElement, 'z-index', '1 !important');
     }
 
-    if (this.myWindow.pageYOffset < 5) {
+    if (this.myWindow.pageYOffset < 6) {
       this.renderer.removeStyle(this.element.nativeElement, 'position');
       this.renderer.removeStyle(this.element.nativeElement, 'z-index');
     }
-    // console.log('Scroll: ' + this.myWindow.pageYOffset);
+    console.log('Scroll: ' + this.myWindow.pageYOffset);
   }
 
 }

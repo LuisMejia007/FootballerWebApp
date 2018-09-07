@@ -17,15 +17,17 @@ import { Footballer } from '../shared/models/footballer';
   animations: [
     trigger('toggleMenu', [
       state('hide', style({
-        display: 'hidden',
-        left: '0px'
+        // display: 'hidden',
+        // left: '0px'
+        transform: 'translateX(-50%)'
       })),
       state('show', style({
-        display: 'visible',
-        left: '50%'
+        // display: 'visible',
+        // left: '50%'
+        transform: 'translateX(50%)'
       })),
-      transition('hide => show', animate('1000ms ease-in')),
-      transition('show => hide', animate('1000ms ease-out'))
+      transition('hide => show', animate('0.2s ease-in')),
+      transition('show => hide', animate('0.2s ease-out'))
     ])
   ]
 })

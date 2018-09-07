@@ -15,12 +15,12 @@ export class FilterListDirective {
   @HostListener('window:scroll', ['$event'])
     onWindowScroll(e) {
 
-      if (this.windowService.nativeWindow.pageYOffset > 5) {
+      if (this.windowService.nativeWindow.pageYOffset > 6) {
           this.renderer.setStyle(this.element.nativeElement, 'position', 'fixed');
           this.renderer.setStyle(this.element.nativeElement, 'bottom', '0');
       }
 
-      if (this.windowService.nativeWindow.pageYOffset < 5) {
+      if (this.windowService.nativeWindow.pageYOffset < 6) {
         this.renderer.removeStyle(this.element.nativeElement, 'position');
         this.renderer.removeStyle(this.element.nativeElement, 'bottom');
       }

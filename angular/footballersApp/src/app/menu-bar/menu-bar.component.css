@@ -1,21 +1,31 @@
 .menu-container {  
     height: 55px;
+    
 }
 .menu {
-  background-color: black;
+  background-color: white;
    height: 55px;
    width: 100%;
    flex-wrap: nowrap;
+   box-shadow: 0px 3px 20px gray;
 }
 .menuBtn { 
-    color: white;
-    font-size: 2em;
+    color: rgb(3, 173, 224);
+    font-size: 1.6em;
+    margin: 10px 6%;
+}
+
+.menuBtn:hover { 
+    cursor: pointer;
+    color: rgb(15, 127, 161);
+    transition: color 1s;
 }
 
 .menu-header { 
-    color: white;
-    font-size: 2em;
+    color: rgb(3, 173, 224);
+    font-size: 1.6em;
     font-family: Arial;
+    margin: 10px 25%;
 }
 
 .menu-btn-container, .menu-header-container{ 
@@ -28,4 +38,13 @@
 }
 .menu-header-container{  
     width: 70%;
+}
+
+@media (max-width: 800px) { 
+    .menu-header { 
+        color: rgb(3, 173, 224);
+        font-size: 1.5em;
+        font-family: Arial;
+        margin: 10px 25%;
+    }
 }

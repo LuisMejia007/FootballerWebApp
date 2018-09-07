@@ -10,6 +10,11 @@
     display: block; 
     margin: 0 auto;
 }
+.footballer-info-box { 
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
 .footballer-info-container {
 
     width: 100%;
@@ -34,4 +39,24 @@
     display: block;
     float: left;
     margin: 0 auto;
+}
+.footballer-info ul li { 
+    list-style: none;
+}
+.footballer-name-container { 
+    background-color: black;
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+}
+.footballer-name { 
+    color: white;
+    font-size: 1.6em;
+}
+.footballer-info-li {
+    color: white;
+}
+
+.footballer-mini-info-box { 
+    background-color: rgba(0,0,0,0.8);
 }

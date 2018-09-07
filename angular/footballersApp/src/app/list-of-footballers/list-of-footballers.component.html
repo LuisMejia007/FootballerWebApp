@@ -7,15 +7,17 @@
             <img class = "footballerImg" alt = "{{footballer.name}} picture" src = "{{footballer.imgUrl}}"/>
         </div>
         <div class = "footballer-info">
-          <ul>
-              <li> {{ footballer.name}} </li>
-              <ul>
-                <li> {{footballer.fullName }} </li>
-                <li> {{footballer.position }} </li>
-                <li> {{footballer.dateOfBirth}} </li>
-                <li> {{footballer.placeOfBirth}} </li>
+          <ul class = "footballer-info-box">
+            <div class = "footballer-name-container">
+                <li class = "footballer-name"> {{ footballer.name}} </li>
+            </div>
+            <ul class = "footballer-mini-info-box">
+                <li class = "footballer-info-li"> {{footballer.fullName }} </li>
+                <li class = "footballer-info-li"> {{footballer.position }} </li>
+                <li class = "footballer-info-li"> {{footballer.dateOfBirth}} </li>
+                <li class = "footballer-info-li"> {{footballer.placeOfBirth}} </li>
                   <!-- <li> {{footballer.getNationality()}} </li> -->
-              </ul>
+            </ul>
           </ul>
         </div>
       </div>

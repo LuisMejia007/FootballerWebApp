@@ -17,6 +17,7 @@ import { WindowReferenceService } from './shared/services/native_window_service/
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { FilterListDirective } from './directives/filter-list.directive';
 import { SideMenuComponent } from './side-menu/side-menu.component';
+import { FormationDisplayComponent } from './formation-display/formation-display.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     StickNavDirective,
     MenuBarComponent,
     FilterListDirective,
-    SideMenuComponent
+    SideMenuComponent,
+    FormationDisplayComponent
   ],
   imports: [
     BrowserModule,

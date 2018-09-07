@@ -7,11 +7,26 @@
 <app-menu-bar (showcaseMenuEvent) = "handleToggleMenuEvent($event)">
 </app-menu-bar>
 
-<div> 
-  <ul *ngFor = "let footballer of footballers">
-     <app-footballer-card
-     [footballer] = "footballer"
-     >
-     </app-footballer-card>
-  </ul>
+<div class = "jumbotron formation-container">
+  <app-formation-display></app-formation-display>
+</div> 
+<div class = "footballer-list-box-container"> 
+  <!-- <div class = "row" *ngFor = "let footballer of footballers">
+      <app-footballer-card
+      [footballer] = "footballer"
+      >
+      </app-footballer-card>
+  </div> -->
+  <div class = "row">
+      <ul class = "footballer-list-box">
+        <li *ngFor = "let footballer of footballers">
+            <app-footballer-card
+            [footballer] = "footballer"
+            >
+            </app-footballer-card>     
+        </li>
+    </ul>
+  </div>
 </div>
+
+

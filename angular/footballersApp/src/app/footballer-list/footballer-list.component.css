@@ -2,3 +2,16 @@ body{
     background-image: url("../shared/imgs/grass_texture.jpg");
     
 }
+
+.footballer-list-box { 
+  /* flex-wrap: nowrap; */
+  list-style: none;
+  
+}
+
+.footballer-list-box li { 
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    float: left;
+    display: block;
+}

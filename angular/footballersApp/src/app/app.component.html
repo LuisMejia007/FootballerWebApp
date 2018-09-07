@@ -1,11 +1,13 @@
 
-<nav appFilterList class = "filter-nav">
-    <div class = "first-link-container">
-        <a routerLink = "/addFootballer" routerLinkActive = "active"> Lineup </a>
-    </div>
-    <div class = "second-link-container">
-        <a routerLink = "/getFootballers" routerLinkActive = "active"> Squad Overview </a>
-    </div>
-</nav>
+<!-- <div class = "nav-container"> -->
+        <nav appFilterList class="filter-nav">
+            <div class="first-link-container">
+                <a routerLink="/addFootballer" routerLinkActive="active" class = "filter-links"> Lineup </a>
+            </div>
+            <div class="second-link-container">
+                <a routerLink="/getFootballers" routerLinkActive="active" class = "filter-links"> Squad Overview </a>
+            </div>
+        </nav>
+<!-- </div> -->
 <router-outlet>
 </router-outlet>

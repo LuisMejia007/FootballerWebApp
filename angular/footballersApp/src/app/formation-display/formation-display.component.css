@@ -1,0 +1,11 @@
+.formation-box-container{ 
+    width: 100%;
+}
+
+.formation-box { 
+    background-color: green;
+    height: 525px; 
+    width: 80%;
+    box-shadow: 15px 10px 10px gray;
+    margin: 0px auto;
+}
