@@ -6,7 +6,6 @@ body{
 .footballer-list-box { 
   /* flex-wrap: nowrap; */
   list-style: none;
-  
 }
 
 .footballer-list-box li { 

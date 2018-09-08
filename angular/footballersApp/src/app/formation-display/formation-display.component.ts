@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormationDisplayComponent implements OnInit {
 
+  formationSelected = '4-4-2';
   constructor() { }
 
   ngOnInit() {

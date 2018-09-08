@@ -2,10 +2,149 @@
   <div class = "row">
     <div class = "col-md-3"></div>
     <div class = "col-sm-12 col-md-6 formation-box">
-      <div class = "row"></div>
-      <div class = "row"></div>
-      <div class = "row"></div>
-      <div class = "row"></div>
+      <div class = "formation-selection-container">
+        <select class = "formation-selection-box" [(ngModel)] = "formationSelected">
+          <option value = "4-4-2">4-4-2</option>
+          <option value = "4-2-4">4-2-4</option>
+          <option value = "4-3-3">4-3-3</option>
+          <option value = "3-5-2">3-5-2</option>
+        </select>
+      </div>
+      <div class = "formation">
+          <div *ngIf = "formationSelected == '4-4-2'">
+            <div class = "container">
+                <div class = "row">
+                    <div class = "_442position1"></div>
+                    <div class = "_442position1">LS</div>
+                    <div class = "_442position1">RS</div>
+                    <div class = "_442position1"></div>
+                </div>
+                <div class = "row">
+                    
+                    <div class = "_442position2">LM</div>
+                    <div class = "_442position2">LCM</div>
+                    <div class = "_442position2">RCM</div>
+                    <div class = "_442position2">RM</div>
+                    
+                </div>
+                <div class = "row">
+                    
+                    <div class = "_442position3">LB</div>
+                    <div class = "_442position3">LCB</div>
+                    <div class = "_442position3">RCB</div>
+                    <div class = "_442position3">RB</div>
+                    
+                </div>
+                <div class = "row">
+                  <div class = "goalkeeperPosition"></div>
+                  <div class = "goalkeeperPosition"></div>
+                  <div class = "goalkeeperPosition">Goalkeeper</div>
+                  <div class = "goalkeeperPosition"></div>
+                  <div class = "goalkeeperPosition"></div>
+                </div>
+            </div>
+          </div>
+          <div *ngIf = "formationSelected == '4-2-4'">
+              <div class = "row">
+                  <div class = "_424position1"></div>
+                  <div class = "_424position1">LS</div>
+                  <div class = "_424position1">LST</div>
+                  <div class = "_424position1">RST</div>
+                  <div class = "_424position1">RS</div>
+                  <div class = "_424position1"></div>
+              </div>
+              <div class = "row">
+                  <div class = "_424position2"></div>
+                  <div class = "_424position2"></div>
+                  <div class = "_424position2">LCM</div>
+                  <div class = "_424position2">RCM</div>
+                  <div class = "_424position2"></div>
+                  <div class = "_424position2"></div>
+              </div>
+              <div class = "row">
+                  <div class = "_424position3"></div>
+                  <div class = "_424position3">LB</div>
+                  <div class = "_424position3">LCB</div>
+                  <div class = "_424position3">RCB</div>
+                  <div class = "_424position3">RB</div>
+                  <div class = "_424position3"></div>
+              </div>
+              <div class = "row">
+                  <div class = "goalkeeperPosition"></div>
+                  <div class = "goalkeeperPosition"></div>
+                  <div class = "goalkeeperPosition">Goalkeeper</div>
+                  <div class = "goalkeeperPosition"></div>
+                  <div class = "goalkeeperPosition"></div>
+              </div>
+          </div>
+          <div *ngIf = "formationSelected == '4-3-3'">
+              <div class = "row">
+                  <div class = "_433position1"></div>
+                  <div class = "_433position1">LS</div>
+                  <div class = "_433position1">ST</div>
+                  <div class = "_433position1">RS</div>
+                  <div class = "_433position1"></div>
+              </div>
+              <div class = "row">
+                  <div class = "_433position2"></div>
+                  <div class = "_433position2"></div>
+                  <div class = "_433position2">LCM</div>
+                  <div class = "_433position2">CAM</div>
+                  <div class = "_433position2">RCM</div>
+                  <div class = "_433position2"></div>
+                  <div class = "_433position2"></div>
+              </div>
+              <div class = "row">
+                
+                <div class = "_433position3">LB</div>
+                <div class = "_433position3">LCB</div>
+                <div class = "_433position3">RCB</div>
+                <div class = "_433position3">RB</div>
+                
+              </div>
+              <div class = "row">
+                  <div class = "goalkeeperPosition"></div>
+                  <div class = "goalkeeperPosition"></div>
+                  <div class = "goalkeeperPosition">Goalkeeper</div>
+                  <div class = "goalkeeperPosition"></div>
+                  <div class = "goalkeeperPosition"></div>
+              </div>
+          </div>
+          <div *ngIf = "formationSelected == '3-5-2'">
+              <div class = "row">
+                  <div class = "_352position1"></div>
+                  <div class = "_352position1">LS</div>
+                  <div class = "_352position1">RS</div>
+                  <div class = "_352position1"></div>
+                  
+              </div>
+              <div class = "row">
+                  <div class = "_352position2"></div>
+                  <div class = "_352position2">LWB</div>
+                  <div class = "_352position2">LCM</div>
+                  <div class = "_352position2">CAM</div>
+                  <div class = "_352position2">RCM</div>
+                  <div class = "_352position2">RWB</div>
+                  <div class = "_352position2"></div>
+              </div>
+              <div class = "row">
+                  <div class = "_352position3"></div>
+                  <div class = "_352position3"></div>
+                  <div class = "_352position3">LCB</div>
+                  <div class = "_352position3">CCB</div>
+                  <div class = "_352position3">RCB</div>
+                  <div class = "_352position3"></div>
+                  <div class = "_352position3"></div>
+              </div>
+              <div class = "row">
+                  <div class = "goalkeeperPosition"></div>
+                  <div class = "goalkeeperPosition"></div>
+                  <div class = "goalkeeperPosition">Goalkeeper</div>
+                  <div class = "goalkeeperPosition"></div>
+                  <div class = "goalkeeperPosition"></div>
+              </div>
+          </div>
+      </div>
     </div>
     <div class = "col-md-3"></div>
   </div>

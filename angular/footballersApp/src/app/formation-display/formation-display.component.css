@@ -4,8 +4,85 @@
 
 .formation-box { 
     background-color: green;
-    height: 525px; 
-    width: 80%;
+    height: 425px; 
+    width: 60%;
     box-shadow: 15px 10px 10px gray;
-    margin: 0px auto;
+    margin: 5px auto 0 auto;
+}
+
+.formation { 
+    margin: 40px auto 0px auto;
+}
+
+._442position1, ._442position2, ._442position3 { 
+    background-color: cyan;
+    display: block;
+    margin: 0 auto;
+    height: 80px;
+    float: left;
+    width: 25%;
+}
+
+._424position1, ._424position2, ._424position3 { 
+    background-color: cyan;
+    display: block;
+    margin: 0 auto;
+    height: 80px;
+    float: left;
+    width: 16.6%;
+}
+
+._433position1 {
+    background-color: cyan;
+    display: block;
+    margin: 0 auto;
+    height: 80px;
+    float: left;
+    width: 20%
+} 
+._433position2 { 
+    background-color: cyan;
+    display: block;
+    margin: 0 auto;
+    height: 80px;
+    float: left;
+    width: 14.28%;
+
+}
+._433position3 { 
+    background-color: cyan;
+    display: block;
+    margin: 0 auto;
+    height: 80px;
+    float: left;
+    width: 25%;
+}
+
+._352position1 { 
+
+    background-color: cyan;
+    display: block;
+    margin: 0 auto;
+    height: 80px;
+    float: left;
+    width: 25%;
+}
+
+._352position2, ._352position3 {   
+
+    background-color: cyan;
+    display: block;
+    margin: 0 auto;
+    height: 80px;
+    float: left;
+    width: 14.28%;
+}
+
+.goalkeeperPosition { 
+    background-color: cyan;
+    display: block;
+    margin: 0 auto;
+    height: 80px;
+    float: left;
+    width: 20%;
 }
