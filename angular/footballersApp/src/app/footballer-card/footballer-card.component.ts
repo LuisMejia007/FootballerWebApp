@@ -14,5 +14,4 @@ export class FootballerCardComponent implements OnInit {
   constructor() { }
   ngOnInit() {
   }
-
 }

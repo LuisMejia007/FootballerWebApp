@@ -9,6 +9,8 @@ import {
 import { FormsModule } from '@angular/forms';
 import { FootballerService } from '../shared/services/footballer.service';
 import { Footballer } from '../shared/models/footballer';
+import { BehaviorSubject } from 'rxjs';
+import { ComponentMessagingService } from '../shared/services/component-messaging.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -39,9 +41,12 @@ export class SideMenuComponent implements OnInit {
  newFootballer: Footballer;
  name: string;
  selectedFootballerType: string;
+ startingFootballersCounter = 0;
+
 
   constructor(
-    private service: FootballerService
+    private service: FootballerService,
+    private componentMessagingService: ComponentMessagingService
   ) { }
 
   ngOnInit() {
@@ -56,17 +61,35 @@ export class SideMenuComponent implements OnInit {
     this.newFootballer.setName(name);
 
     if (this.selectedFootballerType != null) {
-
       this.newFootballer.setFootballerType(this.selectedFootballerType);
 
     } else {
       alert('Please add what type of footballer youd like to add');
+      return;
     }
-    this.service.addFootballer(this.newFootballer).subscribe();
+
+    if (this.selectedFootballerType === 'starter') {
+
+      if (this.startingFootballersCounter >= 11) {
+        alert('You can only have 11 players in your starting 11. Remove a player from starting 11 or change the player\'s position.');
+        return;
+      } else {
+        this.startingFootballersCounter++;
+      }
+    }
+      this.service.addFootballer(this.newFootballer).subscribe();
+      this.componentMessagingService.notifyFootballerAdded('New Footballer Added');
+      console.log('Notify Added Footballer should have been called!');
+
   }
 
   notifyFootballerListToFilter(filter: string) {
     console.log('User wants footballers of type: ' + filter);
     this.filterFootballerList.emit(filter);
+  }
+
+  clear() {
+    this.startingFootballersCounter = 0;
+    console.log('Counter: ' + this.startingFootballersCounter );
   }
 }

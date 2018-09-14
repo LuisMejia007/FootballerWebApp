@@ -10,142 +10,160 @@
           <option value = "3-5-2">3-5-2</option>
         </select>
       </div>
-      <div class = "formation">
+
           <div *ngIf = "formationSelected == '4-4-2'">
             <div class = "container">
                 <div class = "row">
                     <div class = "_442position1"></div>
-                    <div class = "_442position1">LS</div>
-                    <div class = "_442position1">RS</div>
+                    <div  (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_442position1">LS
+                    </div>
+                    <div (drop) = "onDrop($event);"(dragover) = "onDragOver($event);" class = "_442position1">RS</div>
                     <div class = "_442position1"></div>
                 </div>
                 <div class = "row">
                     
-                    <div class = "_442position2">LM</div>
-                    <div class = "_442position2">LCM</div>
-                    <div class = "_442position2">RCM</div>
-                    <div class = "_442position2">RM</div>
+                    <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_442position2">LM</div>
+                    <div  (drop) = "onDrop($event);"(dragover) = "onDragOver($event);" class = "_442position2">LCM</div>
+                    <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_442position2">RCM</div>
+                    <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_442position2">RM</div>
                     
                 </div>
                 <div class = "row">
                     
-                    <div class = "_442position3">LB</div>
-                    <div class = "_442position3">LCB</div>
-                    <div class = "_442position3">RCB</div>
-                    <div class = "_442position3">RB</div>
+                    <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_442position3">LB</div>
+                    <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_442position3">LCB</div>
+                    <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_442position3">RCB</div>
+                    <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_442position3">RB</div>
                     
                 </div>
                 <div class = "row">
                   <div class = "goalkeeperPosition"></div>
                   <div class = "goalkeeperPosition"></div>
-                  <div class = "goalkeeperPosition">Goalkeeper</div>
+                  <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "goalkeeperPosition">Goalkeeper</div>
                   <div class = "goalkeeperPosition"></div>
                   <div class = "goalkeeperPosition"></div>
                 </div>
             </div>
           </div>
           <div *ngIf = "formationSelected == '4-2-4'">
-              <div class = "row">
-                  <div class = "_424position1"></div>
-                  <div class = "_424position1">LS</div>
-                  <div class = "_424position1">LST</div>
-                  <div class = "_424position1">RST</div>
-                  <div class = "_424position1">RS</div>
-                  <div class = "_424position1"></div>
-              </div>
-              <div class = "row">
-                  <div class = "_424position2"></div>
-                  <div class = "_424position2"></div>
-                  <div class = "_424position2">LCM</div>
-                  <div class = "_424position2">RCM</div>
-                  <div class = "_424position2"></div>
-                  <div class = "_424position2"></div>
-              </div>
-              <div class = "row">
-                  <div class = "_424position3"></div>
-                  <div class = "_424position3">LB</div>
-                  <div class = "_424position3">LCB</div>
-                  <div class = "_424position3">RCB</div>
-                  <div class = "_424position3">RB</div>
-                  <div class = "_424position3"></div>
-              </div>
-              <div class = "row">
-                  <div class = "goalkeeperPosition"></div>
-                  <div class = "goalkeeperPosition"></div>
-                  <div class = "goalkeeperPosition">Goalkeeper</div>
-                  <div class = "goalkeeperPosition"></div>
-                  <div class = "goalkeeperPosition"></div>
+              <div class = "container">
+                  <div class = "row">
+                      <div class = "_424position1"></div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_424position1">LS</div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_424position1">LST</div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_424position1">RST</div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_424position1">RS</div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_424position1"></div>
+                  </div>
+                  <div class = "row">
+                      <div class = "_424position2"></div>
+                      <div class = "_424position2"></div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_424position2">LCM</div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_424position2">RCM</div>
+                      <div class = "_424position2"></div>
+                      <div class = "_424position2"></div>
+                  </div>
+                  <div class = "row">
+                      <div class = "_424position3"></div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_424position3">LB</div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_424position3">LCB</div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_424position3">RCB</div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_424position3">RB</div>
+                      <div class = "_424position3"></div>
+                  </div>
+                  <div class = "row">
+                      <div class = "goalkeeperPosition"></div>
+                      <div class = "goalkeeperPosition"></div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "goalkeeperPosition">Goalkeeper</div>
+                      <div class = "goalkeeperPosition"></div>
+                      <div class = "goalkeeperPosition"></div>
+                  </div>
               </div>
           </div>
           <div *ngIf = "formationSelected == '4-3-3'">
-              <div class = "row">
-                  <div class = "_433position1"></div>
-                  <div class = "_433position1">LS</div>
-                  <div class = "_433position1">ST</div>
-                  <div class = "_433position1">RS</div>
-                  <div class = "_433position1"></div>
-              </div>
-              <div class = "row">
-                  <div class = "_433position2"></div>
-                  <div class = "_433position2"></div>
-                  <div class = "_433position2">LCM</div>
-                  <div class = "_433position2">CAM</div>
-                  <div class = "_433position2">RCM</div>
-                  <div class = "_433position2"></div>
-                  <div class = "_433position2"></div>
-              </div>
-              <div class = "row">
-                
-                <div class = "_433position3">LB</div>
-                <div class = "_433position3">LCB</div>
-                <div class = "_433position3">RCB</div>
-                <div class = "_433position3">RB</div>
-                
-              </div>
-              <div class = "row">
-                  <div class = "goalkeeperPosition"></div>
-                  <div class = "goalkeeperPosition"></div>
-                  <div class = "goalkeeperPosition">Goalkeeper</div>
-                  <div class = "goalkeeperPosition"></div>
-                  <div class = "goalkeeperPosition"></div>
+              <div class = "container">
+                  <div class = "row">
+                      <div class = "_433position1"></div>
+                      <div (drop) = "onDrop($event);" class = "_433position1">LS
+                      </div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_433position1">ST</div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_433position1">RS</div>
+                      <div class = "_433position1"></div>
+                  </div>
+                  <div class = "row">
+                      <div class = "_433position2"></div>
+                      <div class = "_433position2"></div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_433position2">LCM</div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_433position2">CAM</div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_433position2">RCM</div>
+                      <div class = "_433position2"></div>
+                      <div class = "_433position2"></div>
+                  </div>
+                  <div class = "row">
+                    
+                    <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_433position3">LB</div>
+                    <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_433position3">LCB</div>
+                    <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_433position3">RCB</div>
+                    <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_433position3">RB</div>
+                    
+                  </div>
+                  <div class = "row">
+                      <div class = "goalkeeperPosition"></div>
+                      <div class = "goalkeeperPosition"></div>
+                      <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "goalkeeperPosition">Goalkeeper</div>
+                      <div class = "goalkeeperPosition"></div>
+                      <div class = "goalkeeperPosition"></div>
+                  </div>
               </div>
           </div>
           <div *ngIf = "formationSelected == '3-5-2'">
+            <div class = "container">
               <div class = "row">
                   <div class = "_352position1"></div>
-                  <div class = "_352position1">LS</div>
-                  <div class = "_352position1">RS</div>
+                  <div (drop) = "onDrop($event);"  (dragover) = "onDragOver($event);"class = "_352position1">LS</div>
+                  <div  (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_352position1">RS</div>
                   <div class = "_352position1"></div>
                   
               </div>
               <div class = "row">
                   <div class = "_352position2"></div>
-                  <div class = "_352position2">LWB</div>
-                  <div class = "_352position2">LCM</div>
-                  <div class = "_352position2">CAM</div>
-                  <div class = "_352position2">RCM</div>
-                  <div class = "_352position2">RWB</div>
-                  <div class = "_352position2"></div>
+                  <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_352position2">LWB</div>
+                  <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_352position2">LCM</div>
+                  <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_352position2">CAM</div>
+                  <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_352position2">RCM</div>
+                  <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_352position2">RWB</div>
+                  <div (drop) = "onDrop($event);" class = "_352position2"></div>
               </div>
               <div class = "row">
                   <div class = "_352position3"></div>
                   <div class = "_352position3"></div>
-                  <div class = "_352position3">LCB</div>
-                  <div class = "_352position3">CCB</div>
-                  <div class = "_352position3">RCB</div>
+                  <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_352position3">LCB</div>
+                  <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_352position3">CCB</div>
+                  <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "_352position3">RCB</div>
                   <div class = "_352position3"></div>
                   <div class = "_352position3"></div>
               </div>
               <div class = "row">
                   <div class = "goalkeeperPosition"></div>
                   <div class = "goalkeeperPosition"></div>
-                  <div class = "goalkeeperPosition">Goalkeeper</div>
+                  <div (drop) = "onDrop($event);" (dragover) = "onDragOver($event);"class = "goalkeeperPosition">Goalkeeper</div>
                   <div class = "goalkeeperPosition"></div>
                   <div class = "goalkeeperPosition"></div>
               </div>
+            </div>
           </div>
+
+          <div class = "player-list-container">
+              <div class = "player-list">
+                <div class = "row">
+                  <div class = "player-container" *ngFor = "let footballer of footballers"> 
+                    <p id = "{{footballer.name}}" class = "player" draggable = "true" (dragstart) = "dragStartHandler($event);">
+                       {{footballer.name}}</p>
+                  </div>
+                </div>
+            </div>
+        </div>
       </div>
     </div>
     <div class = "col-md-3"></div>
   </div>
-</div>

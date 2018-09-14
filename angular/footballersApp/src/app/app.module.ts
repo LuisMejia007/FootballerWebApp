@@ -18,6 +18,7 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { FilterListDirective } from './directives/filter-list.directive';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { FormationDisplayComponent } from './formation-display/formation-display.component';
+import { ComponentMessagingService } from './shared/services/component-messaging.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { FormationDisplayComponent } from './formation-display/formation-display
   [ FootballerService,
     FootballerListComponent,
     SideMenuComponent,
+    ComponentMessagingService,
     WindowReferenceService
   ],
   bootstrap: [AppComponent]

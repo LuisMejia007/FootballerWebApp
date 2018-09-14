@@ -27,9 +27,9 @@ export class FootballerListComponent implements OnInit {
   footballers: Footballer[] = [];
   sharedFootballerList = new BehaviorSubject<Footballer[]>(null);
   filterStatus: string;
+
   constructor(
-    private service: FootballerService,
-    private sideMenuComponentListener: SideMenuComponent
+    private service: FootballerService
   ) { }
 
   ngOnInit() {
